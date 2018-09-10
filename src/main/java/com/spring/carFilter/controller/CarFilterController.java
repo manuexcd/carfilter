@@ -26,10 +26,7 @@ public class CarFilterController {
 	
 	@PostMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
 	public Mono<CarFilter> filter(@RequestBody CarFilter car) {
-		CarFilter newCar = new CarFilter();
-		newCar.setBrand(car.getBrand());
-		newCar.setModel(car.getModel());
-		newCar.setColor("black");
-		return carFilterRepository.save(newCar);
+		car.setColor("black");
+		return carFilterRepository.save(car);
 	}
 }
